@@ -4,11 +4,12 @@ using ReportCreater.Services.Interfaces;
 
 namespace ReportCreater.Services
 {
-    internal class JsonGenerator : IGenerator
+    public class JsonGenerator : IGenerator
     {
-        public void Generate(IEnumerable<ReportRecord> mergeData, string path)
+        public void Generate(IEnumerable<ReportRecord> records, string path)
         {
-            var json = JsonConvert.SerializeObject(mergeData);
+            var wrapper = new JsonWrapper { Records = records };
+            var json = JsonConvert.SerializeObject(wrapper);
             File.WriteAllText(path, json);
         }
     }

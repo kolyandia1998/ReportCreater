@@ -1,3 +1,7 @@
+using ReportCreater.Services;
+using ReportCreater.Services.Interfaces;
+using ReportCreater.Services.Parsers;
+
 namespace ReportCreater
 {
     internal static class Program
@@ -8,10 +12,11 @@ namespace ReportCreater
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            var CsvParser = new CsvParser();
+            var XmlParser = new XmlParser();
+            IGenerator generator = new JsonGenerator();
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainWindow());
+            Application.Run(new MainWindow(XmlParser,CsvParser,generator));
         }
     }
 }

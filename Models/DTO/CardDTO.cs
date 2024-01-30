@@ -18,7 +18,7 @@ namespace ReportCreater.Models.DTO
             if (!long.TryParse(pan, out var panRes))
                 return null;
             card.Pan = panRes;
-            if (!DateOnly.TryParseExact(expDate, "dd/mm/YYYY", null, DateTimeStyles.None, out var expDateRes))
+            if (!DateOnly.TryParseExact(expDate, "dd/MM/yyyy", null, DateTimeStyles.None, out var expDateRes))
                 return null;
             card.ExpDate = expDateRes;
             return card;
