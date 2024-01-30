@@ -15,17 +15,17 @@ namespace ReportCreater.Services.Parsers
             textFieldParser.SetDelimiters(";");
             textFieldParser.TextFieldType = FieldType.Delimited;
 
-            while (!textFieldParser.EndOfData)
+            while ( !textFieldParser.EndOfData )
             {
                 var fileds = textFieldParser.ReadFields();
-                if (fileds == null)
+                if ( fileds == null )
                     continue;
                 var user = UserDTO.FromCsv(fileds);
-                if (user == null)
+                if ( user == null )
                     continue;
                 result.Add(user);
             }
-            if (result.Where(u => u != null).Count() == 0)
+            if ( result.Where(u => u != null).Count() == 0 )
                 return null;
             return result.Where(u => u != null);
         }

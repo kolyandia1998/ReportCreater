@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace ReportCreater.Models.DTO
 {
@@ -12,13 +7,13 @@ namespace ReportCreater.Models.DTO
         public static Card? FromXml(string? userId, string? pan, string? expDate)
         {
             Card card = new Card();
-            if (!int.TryParse(userId, out var idRes))
+            if ( !int.TryParse(userId, out var idRes) )
                 return null;
             card.UserID = idRes;
-            if (!long.TryParse(pan, out var panRes))
+            if ( !long.TryParse(pan, out var panRes) )
                 return null;
             card.Pan = panRes;
-            if (!DateOnly.TryParseExact(expDate, "dd/MM/yyyy", null, DateTimeStyles.None, out var expDateRes))
+            if ( !DateOnly.TryParseExact(expDate, "dd/MM/yyyy", null, DateTimeStyles.None, out var expDateRes) )
                 return null;
             card.ExpDate = expDateRes;
             return card;
