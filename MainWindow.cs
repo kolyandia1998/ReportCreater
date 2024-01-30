@@ -1,4 +1,4 @@
-using ReportCreater.Models;
+п»їusing ReportCreater.Models;
 using ReportCreater.Services;
 using ReportCreater.Services.Interfaces;
 using ReportCreater.Services.Parsers;
@@ -27,16 +27,16 @@ namespace ReportCreater
         {
             if ( string.IsNullOrEmpty(_outPutDirectory) )
             {
-                _messageTextBox.Text = "Не выбрана выходная директория";
+                _messageTextBox.Text = "РќРµ РІС‹Р±СЂР°РЅР° РІС‹С…РѕРґРЅР°СЏ РґРёСЂРµРєС‚РѕСЂРёСЏ";
                 return;
             }
             if ( _reportQueue.Count > 0 )
             {
                 _generator.Generate(_reportQueue.Dequeue(), _outPutDirectory + $"/{reportCounter}.json");
                 if ( _reportQueue.Count > 0 )
-                    _messageTextBox.Text = $"Можно сгенерировать отчёт. Будет создано: {_reportQueue.Peek().Count()} строк";
+                    _messageTextBox.Text = $"РњРѕР¶РЅРѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РѕС‚С‡С‘С‚. Р‘СѓРґРµС‚ СЃРѕР·РґР°РЅРѕ: {_reportQueue.Peek().Count()} СЃС‚СЂРѕРє";
                 else
-                    _messageTextBox.Text = "Нет отчётов для генерации";
+                    _messageTextBox.Text = "РќРµС‚ РѕС‚С‡С‘С‚РѕРІ РґР»СЏ РіРµРЅРµСЂР°С†РёРё";
             }
         }
 
@@ -76,7 +76,7 @@ namespace ReportCreater
                 }
             }
             if ( _reportQueue.Count() > 0 )
-                _messageTextBox.Text = $"Можно сгенерировать отчёт. Будет создано: {_reportQueue.Peek().Count()} строк";
+                _messageTextBox.Text = $"РњРѕР¶РЅРѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РѕС‚С‡С‘С‚. Р‘СѓРґРµС‚ СЃРѕР·РґР°РЅРѕ: {_reportQueue.Peek().Count()} СЃС‚СЂРѕРє";
         }
 
         private void _outDirectorySelectionButton_Click(object sender, EventArgs e)
@@ -91,9 +91,9 @@ namespace ReportCreater
         private void _selectedOutDirectoryTextBox_TextChanged(object sender, EventArgs e)
         {
             if ( _reportQueue.Count > 0 )
-                _messageTextBox.Text = $"Можно сгенерировать отчёт. Будет создано: {_reportQueue.Peek().Count()} строк";
+                _messageTextBox.Text = $"РњРѕР¶РЅРѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РѕС‚С‡С‘С‚. Р‘СѓРґРµС‚ СЃРѕР·РґР°РЅРѕ: {_reportQueue.Peek().Count()} СЃС‚СЂРѕРє";
             else
-                _messageTextBox.Text = "Нет отчётов для генерации";
+                _messageTextBox.Text = "РќРµС‚ РѕС‚С‡С‘С‚РѕРІ РґР»СЏ РіРµРЅРµСЂР°С†РёРё";
         }
     }
 }

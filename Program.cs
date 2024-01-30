@@ -9,7 +9,7 @@ namespace ReportCreater
 {
     internal static class Program
     {
-        [STAThread]
+        [STAThread] 
         static void Main()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
