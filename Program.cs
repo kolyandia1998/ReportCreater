@@ -1,6 +1,9 @@
 using ReportCreater.Services;
 using ReportCreater.Services.Interfaces;
 using ReportCreater.Services.Parsers;
+using System.Text;
+
+
 
 namespace ReportCreater
 {
@@ -12,6 +15,7 @@ namespace ReportCreater
         [STAThread]
         static void Main()
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             var CsvParser = new CsvParser();
             var XmlParser = new XmlParser();
             IGenerator generator = new JsonGenerator();
